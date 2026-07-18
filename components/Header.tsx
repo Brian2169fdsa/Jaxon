@@ -21,12 +21,26 @@ export function Header() {
 
   useEffect(() => setOpen(false), [pathname]);
 
+  useEffect(() => {
+    if (!open) return;
+    const previousOverflow = document.body.style.overflow;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", closeOnEscape);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [open]);
+
   return (
     <>
       <header className="site-header">
         <div className="header-inner">
           <Link href="/" className="brand" aria-label={`${business.name} home`}>
-            <Image src="/images/logo.png" alt={business.name} width={92} height={92} priority />
+            <Image src="/images/logo-nav.jpg" alt={business.name} width={120} height={95} priority />
           </Link>
           <nav className="desktop-nav" aria-label="Primary navigation">
             {links.map(([label, href]) => (
@@ -42,10 +56,11 @@ export function Header() {
             <Link className="button button-primary" href="/contact">Get a Free Quote</Link>
           </div>
           <button
-            className="menu-button"
+            className={open ? "menu-button open" : "menu-button"}
             type="button"
             aria-label="Toggle navigation"
             aria-expanded={open}
+            aria-controls="mobile-navigation"
             onClick={() => setOpen((value) => !value)}
           >
             <span />
@@ -54,7 +69,7 @@ export function Header() {
           </button>
         </div>
         {open && (
-          <nav className="mobile-menu" aria-label="Mobile navigation">
+          <nav id="mobile-navigation" className="mobile-menu" aria-label="Mobile navigation">
             {links.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}
             <a href={`tel:${business.phoneHref}`}>Call {business.phone}</a>
           </nav>

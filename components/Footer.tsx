@@ -8,7 +8,7 @@ export function Footer() {
       <div className="footer-grid shell">
         <div className="footer-brand">
           <Link href="/" className="footer-logo">
-            <Image src="/images/logo.png" alt={business.name} width={132} height={132} />
+            <Image src="/images/logo-nav.jpg" alt={business.name} width={126} height={100} />
           </Link>
           <strong>{business.tagline}</strong>
           <p>Local property care for homes, businesses, and land across northwest Oklahoma.</p>

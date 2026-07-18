@@ -14,7 +14,7 @@ export default function DetailingPage() {
         <div className="detailing-overlay" />
         <div className="shell hero-content">
           <p className="eyebrow eyebrow-light">Auto & truck detailing</p>
-          <h1>Bring back that clean, sharp, new-truck feeling.</h1>
+          <h1>Bring back that clean, sharp, fresh truck feeling.</h1>
           <p>Full interior and exterior detailing for daily drivers, work trucks, and small fleets across Woodward County.</p>
           <div className="button-row"><Link href="/contact" className="button button-primary">Get a Detailing Quote</Link><a href={`tel:${business.phoneHref}`} className="button button-ghost">Call {business.phone}</a></div>
         </div>
@@ -26,7 +26,7 @@ export default function DetailingPage() {
         </div>
       </section>
       <section className="section section-soft"><div className="shell package-grid"><div><p className="eyebrow">Who it’s for</p><h2>Daily drivers to working fleets.</h2><p>Bring us the vehicle that works hard, carries the family, represents the business, or simply deserves a reset.</p></div><div className="package-panel"><p className="eyebrow eyebrow-light">Packages</p><h3>Pricing built around the vehicle.</h3><p>Vehicle size, condition, and service level affect the quote. Tell us what you drive and what it needs for clear pricing.</p><Link href="/contact" className="button button-white">Request Pricing</Link></div></div></section>
-      <section className="section section-white"><div className="shell"><div className="section-heading"><p className="eyebrow">Made for Oklahoma roads</p><h2>Dust, mud, work, and weather—we know the assignment.</h2></div><div className="local-points-grid">{[["Work trucks & farm rigs", "Gravel-road dust and jobsite mud get a full interior and exterior reset."], ["Daily drivers", "Make the car or truck you live in every day feel new again."], ["Small fleets", "Keep business vehicles clean and professional with multi-vehicle options."]].map(([title, body]) => <article key={title}><span /><h3>{title}</h3><p>{body}</p></article>)}</div></div></section>
+      <section className="section section-white"><div className="shell"><div className="section-heading"><p className="eyebrow">Made for Oklahoma roads</p><h2>Dust, mud, work, and weather are all part of the assignment.</h2></div><div className="local-points-grid">{[["Work trucks & farm rigs", "Gravel road dust and jobsite mud get a full interior and exterior reset."], ["Daily drivers", "Make the car or truck you live in every day feel new again."], ["Small fleets", "Keep business vehicles clean and professional with options for multiple vehicles."]].map(([title, body]) => <article key={title}><span /><h3>{title}</h3><p>{body}</p></article>)}</div></div></section>
       <SectionCta title="Ready to reset your ride?" body="Tell us the vehicle, its condition, and the level of detail you want." />
     </>
   );

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { SectionCta } from "@/components/SectionCta";
 import { business, towns, type Service } from "@/lib/site-data";
@@ -16,7 +17,10 @@ export function ServiceDetail({ service }: { service: Service }) {
               <a href={`tel:${business.phoneHref}`} className="button button-ghost">Call {business.phone}</a>
             </div>
           </div>
-          <div className="service-number" aria-hidden="true">{service.shortTitle.split(" ").map((word) => word[0]).join("")}</div>
+          <div className="service-visual">
+            <Image src={service.image} alt={`Completed ${service.shortTitle.toLowerCase()} project`} fill priority sizes="(max-width: 800px) 90vw, 38vw" />
+            <span>Professional results · Local crew</span>
+          </div>
         </div>
       </section>
 
@@ -24,7 +28,7 @@ export function ServiceDetail({ service }: { service: Service }) {
         <div className="shell service-included-grid">
           <div>
             <p className="eyebrow">What’s included</p>
-            <h2>A complete visit—not half a job.</h2>
+            <h2>A complete visit, never half a job.</h2>
             <p>Every property is different, but our standard is the same: clear expectations, careful work, and a clean final pass.</p>
           </div>
           <ul className="check-list">
