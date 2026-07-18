@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { BeforeAfter } from "@/components/BeforeAfter";
 import { Faq } from "@/components/Faq";
 import { SectionCta } from "@/components/SectionCta";
 import { business, reviews, services, towns } from "@/lib/site-data";
@@ -83,8 +84,8 @@ export default function HomePage() {
           </div>
           <div className="service-card-grid">
             {services.map((service, index) => (
-              <Link className={`service-card service-art-${index + 1}`} href={`/services/${service.slug}`} key={service.slug}>
-                <div className="service-card-art"><span>{String(index + 1).padStart(2, "0")}</span></div>
+              <Link className="service-card" href={`/services/${service.slug}`} key={service.slug}>
+                <div className="service-card-art"><Image src={service.image} alt={service.title} fill sizes="(max-width: 560px) 100vw, (max-width: 1080px) 50vw, 25vw" /><span>{String(index + 1).padStart(2, "0")}</span></div>
                 <div className="service-card-copy">
                   <p className="eyebrow">{service.eyebrow}</p>
                   <h3>{service.title}</h3>
@@ -125,10 +126,12 @@ export default function HomePage() {
             <p>From shaggy to sharp and overgrown to open, see what a CLM visit does for a property.</p>
             <Link href="/work" className="button button-white">View Our Work</Link>
           </div>
-          <div className="before-after-teaser">
-            <div className="teaser-image before"><span>Before</span></div>
-            <div className="teaser-image after"><span>After</span></div>
-          </div>
+          <BeforeAfter
+            before="/images/work/lawn-before.jpg"
+            after="/images/work/lawn-after.jpg"
+            beforeAlt="Overgrown residential lawn before mowing"
+            afterAlt="The same residential lawn after professional mowing"
+          />
         </div>
       </section>
 
@@ -152,7 +155,7 @@ export default function HomePage() {
             <p>Full interior and exterior detailing for cars, trucks, and small work fleets. Same local crew, same attention to detail.</p>
             <Link href="/detailing" className="button button-dark">See Detailing</Link>
           </div>
-          <Image src="/images/home-detailing.jpg" alt="A professionally detailed black truck" width={1200} height={675} sizes="(max-width: 800px) 100vw, 50vw" />
+          <Image src="/images/detailing-truck.jpg" alt="A professionally detailed black truck" width={1672} height={941} sizes="(max-width: 800px) 100vw, 50vw" />
         </div>
       </section>
 

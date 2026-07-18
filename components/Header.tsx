@@ -40,7 +40,7 @@ export function Header() {
       <header className="site-header">
         <div className="header-inner">
           <Link href="/" className="brand" aria-label={`${business.name} home`}>
-            <Image src="/images/logo.png" alt={business.name} width={92} height={92} priority />
+            <Image src="/images/logo-nav.jpg" alt={business.name} width={120} height={95} priority />
           </Link>
           <nav className="desktop-nav" aria-label="Primary navigation">
             {links.map(([label, href]) => (

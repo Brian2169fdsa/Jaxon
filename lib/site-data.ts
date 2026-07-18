@@ -15,6 +15,7 @@ export const services = [
     eyebrow: "Lawn care",
     title: "Lawn Mowing & Maintenance",
     shortTitle: "Lawn Mowing",
+    image: "/images/work/lawn-after.jpg",
     description: "Consistent mowing, trimming, edging, and blow-off on a schedule that keeps your property sharp.",
     included: [
       "Mowing at the right height for the grass and season",
@@ -38,6 +39,7 @@ export const services = [
     eyebrow: "Beds & landscaping",
     title: "Garden Beds & Landscaping",
     shortTitle: "Garden Beds",
+    image: "/images/work/garden-after.jpg",
     description: "Weeding, edging, fresh mulch, and seasonal planting that gives the whole property a finished look.",
     included: [
       "Full bed cleanup and weed removal",
@@ -61,6 +63,7 @@ export const services = [
     eyebrow: "Cleanup & haul-off",
     title: "Yard Cleanup & Debris Removal",
     shortTitle: "Yard Cleanup",
+    image: "/images/work/cleanup-after.jpg",
     description: "Leaves, limbs, storm debris, and yard waste cleared and hauled away—gone, not moved to the curb.",
     included: [
       "Leaf, limb, and yard-debris removal",
@@ -84,6 +87,7 @@ export const services = [
     eyebrow: "Brush & overgrowth",
     title: "Brush Clearing & Overgrowth Removal",
     shortTitle: "Brush Clearing",
+    image: "/images/work/brush-after.jpg",
     description: "Fence lines, lots, and back corners opened back up into clean, visible, usable ground.",
     included: [
       "Dense brush and volunteer-growth removal",

@@ -24,15 +24,15 @@ export default function ServicesPage() {
       <section className="section section-white">
         <div className="shell service-card-grid">
           {services.map((service, index) => (
-            <Link className={`service-card service-art-${index + 1}`} href={`/services/${service.slug}`} key={service.slug}>
-              <div className="service-card-art"><span>{String(index + 1).padStart(2, "0")}</span></div>
+            <Link className="service-card" href={`/services/${service.slug}`} key={service.slug}>
+              <div className="service-card-art"><Image src={service.image} alt={service.title} fill sizes="(max-width: 560px) 100vw, (max-width: 1080px) 50vw, 25vw" /><span>{String(index + 1).padStart(2, "0")}</span></div>
               <div className="service-card-copy"><p className="eyebrow">{service.eyebrow}</p><h2>{service.title}</h2><p>{service.description}</p><strong>Learn more →</strong></div>
             </Link>
           ))}
         </div>
         <Link href="/detailing" className="services-detailing-card shell-inset">
           <div><p className="eyebrow">Also</p><h2>Auto & Truck Detailing</h2><p>Full interior and exterior detailing for daily drivers, work trucks, and small fleets.</p><strong>See detailing →</strong></div>
-          <Image src="/images/home-detailing.jpg" alt="Detailed black pickup truck" width={1200} height={675} />
+          <Image src="/images/detailing-truck.jpg" alt="Detailed black pickup truck" width={1672} height={941} />
         </Link>
       </section>
       <section className="section section-soft">
