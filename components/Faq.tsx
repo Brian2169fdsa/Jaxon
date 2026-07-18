@@ -3,8 +3,8 @@
 import { useState } from "react";
 
 const items = [
-  ["Do you offer free estimates?", "Yes. Every quote is free and up-front, with no pressure and no surprise charges."],
-  ["Do you do one-time jobs or recurring service?", "Both. We offer recurring lawn care as well as one-time cleanups, clearing, and detailing."],
+  ["Do you offer free estimates?", "Yes. Every quote is free and clear from the start, with no pressure and no surprise charges."],
+  ["Do you do single visits or recurring service?", "Both. We offer recurring lawn care as well as single visit cleanups, clearing, and detailing."],
   ["Do you haul debris away?", "Yes. For cleanup and clearing work, we haul material off so you are not left with a pile."],
   ["Do you work with businesses and rentals?", "Absolutely. We serve homes, rentals, commercial properties, and land."],
   ["How do I get started?", "Send the quote form with your address, the service you need, and a few details. We’ll take it from there."],

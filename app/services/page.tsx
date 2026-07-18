@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 const seasons = [
-  ["Spring", "Green-up mowing, bed cleanup and mulch, plus winter debris and storm cleanup."],
+  ["Spring", "Early season mowing, bed cleanup and mulch, plus winter debris and storm cleanup."],
   ["Summer", "Consistent mowing at the right height, bed upkeep, and clean edging all season."],
   ["Fall", "Leaves and debris hauled off, a final cut, and beds buttoned up before winter."],
   ["Anytime", "Brush clearing, overgrowth removal, and auto or truck detailing when you need it."],
@@ -20,7 +20,7 @@ const seasons = [
 export default function ServicesPage() {
   return (
     <>
-      <PageHero eyebrow="Our services" title="Everything your property needs—handled by one local crew." body="From a weekly mow to reclaiming an overgrown back lot, CLM keeps homes, businesses, and land clean, sharp, and usable." />
+      <PageHero eyebrow="Our services" title="Everything your property needs, handled by one local crew." body="From a weekly mow to reclaiming an overgrown back lot, CLM keeps homes, businesses, and land clean, sharp, and usable." />
       <section className="section section-white">
         <div className="shell service-card-grid">
           {services.map((service, index) => (
@@ -37,7 +37,7 @@ export default function ServicesPage() {
       </section>
       <section className="section section-soft">
         <div className="shell">
-          <div className="section-heading"><p className="eyebrow">Made for northwest Oklahoma</p><h2>One call handles the whole property—through every season.</h2><p>Instead of juggling separate crews, you get one local team that knows the ground and follows through.</p></div>
+          <div className="section-heading"><p className="eyebrow">Made for northwest Oklahoma</p><h2>One call handles the whole property through every season.</h2><p>Instead of juggling separate crews, you get one local team that knows the ground and follows through.</p></div>
           <div className="season-grid">{seasons.map(([season, body]) => <article className="card" key={season}><p className="eyebrow">{season}</p><p>{body}</p></article>)}</div>
         </div>
       </section>

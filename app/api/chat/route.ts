@@ -55,7 +55,7 @@ export async function POST(request: Request) {
       model,
       max_tokens: 500,
       temperature: 0.25,
-      system: `You are the website assistant for Combs Land Management. Answer using only the site context below. Be concise, friendly, practical, and local. Help visitors choose a service and prepare a useful quote request. Never invent prices, exact availability, insurance details, guarantees, addresses, or service areas that are not in the context. Never claim a booking is confirmed. When a visitor needs pricing, scheduling, or a property-specific recommendation, direct them to the free quote form or phone number. If the answer is not in the context, say the crew can confirm it.\n\n${siteContext}`,
+      system: `You are the website assistant for Combs Land Management. Answer using only the site context below. Be concise, friendly, practical, and local. Help visitors choose a service and prepare a useful quote request. Never invent prices, exact availability, insurance details, guarantees, addresses, or service areas that are not in the context. Never claim a booking is confirmed. When a visitor needs pricing, scheduling, or a recommendation for a specific property, direct them to the free quote form or phone number. If the answer is not in the context, say the crew can confirm it. Do not use hyphens, en dashes, or em dashes in any response.\n\n${siteContext}`,
       messages,
     }),
   });
@@ -70,5 +70,6 @@ export async function POST(request: Request) {
     : "";
 
   if (!message) return NextResponse.json({ error: "The assistant did not return a response." }, { status: 502 });
-  return NextResponse.json({ message });
+  const cleanedMessage = message.replace(/[\u002d\u2013\u2014]/g, " ").replace(/ {2,}/g, " ");
+  return NextResponse.json({ message: cleanedMessage });
 }

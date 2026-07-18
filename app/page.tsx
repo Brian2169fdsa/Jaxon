@@ -7,15 +7,15 @@ import { business, reviews, services, towns } from "@/lib/site-data";
 
 const steps = [
   ["01", "Tell us about the property", "Send the address, what you need, and a couple of photos if you have them."],
-  ["02", "Get a clear, honest quote", "We look it over and give you straight, up-front pricing with no pressure."],
+  ["02", "Get a clear, honest quote", "We look it over and give you clear pricing with no pressure."],
   ["03", "We show up and get it done", "Clean, on time, and finished right. You come home to a handled property."],
 ];
 
 const why = [
   ["Locally owned", "You’re hiring a neighbor who understands northwest Oklahoma properties."],
   ["One crew, whole property", "From mowing to clearing to detailing, it all stays under one roof."],
-  ["Reliable by default", "Clear schedules, straight answers, and follow-through every time."],
-  ["Homes to acreage", "Residential, commercial, rentals, and land—small jobs and big resets."],
+  ["Reliable by default", "Clear schedules, straight answers, and dependable service every time."],
+  ["Homes to acreage", "Residential, commercial, rentals, and land, from small jobs to big resets."],
 ];
 
 export default function HomePage() {
@@ -58,14 +58,14 @@ export default function HomePage() {
           <div className="section-heading split-heading">
             <div>
               <p className="eyebrow">Sound familiar?</p>
-              <h2>From overgrown and behind—to clean, sharp, and handled.</h2>
+              <h2>From overgrown and behind to clean, sharp, and handled.</h2>
             </div>
             <p>Property work piles up fast. CLM brings the crew, equipment, and follow-through to reset the whole place.</p>
           </div>
           <div className="problem-grid">
             <article className="card problem-card">
               <p className="card-label muted">The problem</p>
-              {["Grass gets ahead every week", "Beds lose their edges and fill with weeds", "Storm debris becomes a permanent pile", "Brush turns usable land into a jungle"].map((item) => <p key={item}><span>—</span>{item}</p>)}
+              {["Grass gets ahead every week", "Beds lose their edges and fill with weeds", "Storm debris becomes a permanent pile", "Brush turns usable land into a jungle"].map((item) => <p key={item}><span>•</span>{item}</p>)}
             </article>
             <article className="card answer-card">
               <p className="card-label">The CLM answer</p>
@@ -80,7 +80,7 @@ export default function HomePage() {
           <div className="section-heading">
             <p className="eyebrow">What we do</p>
             <h2>One crew for the whole property.</h2>
-            <p>Routine care, seasonal resets, and heavy overgrowth—all handled with the same attention to detail.</p>
+            <p>Routine care, seasonal resets, and heavy overgrowth are all handled with the same attention to detail.</p>
           </div>
           <div className="service-card-grid">
             {services.map((service, index) => (
@@ -122,7 +122,7 @@ export default function HomePage() {
         <div className="shell work-band-grid">
           <div>
             <p className="eyebrow eyebrow-light">See the difference</p>
-            <h2>The before-and-after says it all.</h2>
+            <h2>The before and after says it all.</h2>
             <p>From shaggy to sharp and overgrown to open, see what a CLM visit does for a property.</p>
             <Link href="/work" className="button button-white">View Our Work</Link>
           </div>
@@ -179,7 +179,7 @@ export default function HomePage() {
           <div>
             <p className="eyebrow">Where we work</p>
             <h2>Proudly serving northwest Oklahoma.</h2>
-            <p>Based in Woodward and serving nearby homes, businesses, and land. If you are close, ask—we will tell you straight.</p>
+            <p>Based in Woodward and serving nearby homes, businesses, and land. If you are close, ask and we will tell you straight.</p>
             <div className="town-list">{towns.map((town) => <span key={town}>{town}</span>)}</div>
           </div>
           <iframe title="Woodward County service area" src="https://www.google.com/maps?q=Woodward+County,+Oklahoma&z=9&output=embed" loading="lazy" />

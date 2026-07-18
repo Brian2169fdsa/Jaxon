@@ -28,7 +28,7 @@ export function ServiceDetail({ service }: { service: Service }) {
         <div className="shell service-included-grid">
           <div>
             <p className="eyebrow">What’s included</p>
-            <h2>A complete visit—not half a job.</h2>
+            <h2>A complete visit, never half a job.</h2>
             <p>Every property is different, but our standard is the same: clear expectations, careful work, and a clean final pass.</p>
           </div>
           <ul className="check-list">

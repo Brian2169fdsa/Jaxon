@@ -3,7 +3,7 @@ import { PageHero } from "@/components/PageHero";
 import { QuoteForm } from "@/components/QuoteForm";
 import { business, towns } from "@/lib/site-data";
 
-export const metadata: Metadata = { title: "Get a Free Quote", description: "Request a free property-care or detailing quote from Combs Land Management." };
+export const metadata: Metadata = { title: "Get a Free Quote", description: "Request a free property care or detailing quote from Combs Land Management." };
 
 export default function ContactPage() {
   return (
