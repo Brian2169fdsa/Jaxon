@@ -10,17 +10,23 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://combslandmanagement.com"),
   title: { default: `${business.name} | Woodward County, Oklahoma`, template: `%s | ${business.name}` },
   description: "Lawn mowing, garden beds, yard cleanup, brush clearing, and detailing across Woodward County, Oklahoma.",
+  icons: {
+    icon: [{ url: "/icon.png", type: "image/png" }],
+    apple: [{ url: "/apple-icon.png", type: "image/png" }],
+  },
   openGraph: {
     title: business.name,
     description: "Clearing. Cleaning. Transforming. Local property care across northwest Oklahoma.",
     type: "website",
-    images: [{ url: "/og.jpg", width: 1200, height: 630 }],
+    url: "/",
+    siteName: business.name,
+    images: [{ url: "/og-truck.jpg", width: 1200, height: 630, alt: "Combs Land Management branded work truck" }],
   },
   twitter: {
     card: "summary_large_image",
     title: business.name,
     description: "Clearing. Cleaning. Transforming. Local property care across northwest Oklahoma.",
-    images: ["/og.jpg"],
+    images: ["/og-truck.jpg"],
   },
 };
 
