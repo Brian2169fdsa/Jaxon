@@ -55,12 +55,16 @@ export default function HomePage() {
 
       <section className="section section-soft">
         <div className="shell">
-          <div className="section-heading split-heading">
-            <div>
+          <div className="problem-feature-grid">
+            <div className="truck-showcase">
+              <Image src="/images/clm-work-truck.jpg" alt="Black and blue Combs Land Management work truck on a freshly cut lawn" fill sizes="(max-width: 800px) 100vw, 62vw" />
+              <div className="truck-badge"><span>Local crew</span><strong>Ready to roll</strong></div>
+            </div>
+            <div className="problem-feature-copy">
               <p className="eyebrow">Sound familiar?</p>
               <h2>From overgrown and behind to clean, sharp, and handled.</h2>
+              <p>Property work piles up fast. CLM brings the crew, equipment, and dependable service to reset the whole place.</p>
             </div>
-            <p>Property work piles up fast. CLM brings the crew, equipment, and follow-through to reset the whole place.</p>
           </div>
           <div className="problem-grid">
             <article className="card problem-card">
@@ -71,6 +75,22 @@ export default function HomePage() {
               <p className="card-label">The CLM answer</p>
               {["Reliable service on a schedule", "Crisp edges and finished beds", "Debris hauled away for good", "Overgrowth cleared back to usable ground"].map((item) => <p key={item}><span>✓</span>{item}</p>)}
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="speed-section">
+        <div className="shell speed-card">
+          <div className="speed-copy">
+            <p className="eyebrow eyebrow-light">Fast local scheduling</p>
+            <h2>Service usually starts within a few days.</h2>
+            <p>Tell us what the property needs and we will move quickly from quote to a clear spot on the schedule.</p>
+            <Link href="/contact" className="button button-white">Check Availability</Link>
+          </div>
+          <div className="speed-points">
+            <article><span>01</span><div><strong>Quick review</strong><p>Send the details and photos so we can size up the work.</p></div></article>
+            <article><span>02</span><div><strong>Clear timing</strong><p>We confirm the plan and give you a straightforward arrival window.</p></div></article>
+            <article><span>03</span><div><strong>Ready crew</strong><p>Most routine work gets moving within a few days. Weather and larger projects can affect timing.</p></div></article>
           </div>
         </div>
       </section>
