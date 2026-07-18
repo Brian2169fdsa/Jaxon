@@ -356,9 +356,12 @@ p { line-height: 1.68; }
   .shell, .narrow, .shell-inset { width: min(100% - 32px, 1200px); }
   .section { padding: 64px 0; }
   .section-heading { margin-bottom: 32px; }
-  .home-hero { min-height: min(720px, calc(100svh - 76px)); }
-  .home-hero > img { object-position: 64% center; }
-  .hero-overlay { background: linear-gradient(90deg, rgba(2,31,79,.98), rgba(2,47,115,.82) 64%, rgba(1,64,155,.38)); }
+  .home-hero { min-height: 0; padding-top: clamp(270px, 76vw, 340px); display: block; background: linear-gradient(145deg, #021d49, var(--blue-dark) 58%, #01409b); }
+  .home-hero > img { height: clamp(292px, 82vw, 370px) !important; bottom: auto !important; object-position: 73% 58%; }
+  .home-hero .hero-overlay { height: clamp(292px, 82vw, 370px); bottom: auto; background: linear-gradient(180deg, rgba(2,31,79,.04) 0%, rgba(2,31,79,.08) 48%, rgba(2,31,79,.86) 88%, #021d49 100%); }
+  .home-hero .hero-content { padding-block: 30px 58px; }
+  .home-hero .hero-content h1 { text-wrap: balance; }
+  .home-hero .hero-copy { margin-bottom: 28px; }
   .hero-content { padding-block: 58px; }
   .hero-content h1 { max-width: 620px; }
   .page-hero { padding: 60px 0; }
