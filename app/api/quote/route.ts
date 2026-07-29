@@ -49,10 +49,10 @@ export async function POST(request: Request) {
   }
 
   const resendApiKey = process.env.RESEND_API_KEY;
-  const quoteToEmail = process.env.QUOTE_TO_EMAIL;
-  const fromEmail = process.env.QUOTE_FROM_EMAIL || "Combs Land Management <onboarding@resend.dev>";
+  const quoteToEmail = process.env.QUOTE_TO_EMAIL || "jaxoncombs2@gmail.com";
+  const fromEmail = process.env.QUOTE_FROM_EMAIL || "Combs Land Management <quotes@combslandmgt.com>";
 
-  if (!resendApiKey || !quoteToEmail) {
+  if (!resendApiKey) {
     return NextResponse.json({ error: "Online quotes are temporarily unavailable. Please call or email us directly." }, { status: 503 });
   }
 

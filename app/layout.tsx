@@ -7,7 +7,7 @@ import { business } from "@/lib/site-data";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://combslandmanagement.com"),
+  metadataBase: new URL(business.website),
   title: { default: `${business.name} | Woodward County, Oklahoma`, template: `%s | ${business.name}` },
   description: "Lawn mowing, garden beds, yard cleanup, brush clearing, and detailing across Woodward County, Oklahoma.",
   icons: {
@@ -38,7 +38,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     areaServed: business.location,
     telephone: business.phone,
     email: business.email,
-    image: "https://combslandmanagement.com/images/logo.png",
+    image: `${business.website}/images/logo.png`,
+    url: business.website,
   };
 
   return (

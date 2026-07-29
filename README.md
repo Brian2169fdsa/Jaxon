@@ -16,8 +16,10 @@ Import this GitHub repository into Vercel. The framework preset will be detected
 To enable quote emails, create a Resend account, verify a sending domain, and add the variables from `.env.example` to the Vercel project:
 
 - `RESEND_API_KEY`
-- `QUOTE_TO_EMAIL`
-- `QUOTE_FROM_EMAIL`
+- `QUOTE_TO_EMAIL` set to `jaxoncombs2@gmail.com`
+- `QUOTE_FROM_EMAIL` set to `Combs Land Management <quotes@combslandmgt.com>`
+
+Verify `combslandmgt.com` in Resend before using the production sender. Redeploy the Vercel project after adding or changing environment variables.
 
 To enable the site-aware Claude assistant, add:
 

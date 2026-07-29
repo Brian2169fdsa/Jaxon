@@ -1,9 +1,9 @@
 import type { MetadataRoute } from "next";
 import { blogPosts } from "@/lib/blog-data";
-import { services } from "@/lib/site-data";
+import { business, services } from "@/lib/site-data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://combslandmanagement.com";
+  const base = business.website;
   const pages = ["", "/services", "/detailing", "/work", "/about", "/reviews", "/contact"];
 
   return [

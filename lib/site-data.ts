@@ -1,9 +1,10 @@
 export const business = {
   name: "Combs Land Management",
   shortName: "CLM",
+  website: "https://combslandmgt.com",
   phone: "(580) 555 0147",
   phoneHref: "+15805550147",
-  email: "hello@combslandmanagement.com",
+  email: "jaxoncombs2@gmail.com",
   location: "Woodward County, Oklahoma",
   hours: "Monday through Saturday, 7am to 7pm",
   tagline: "Clearing. Cleaning. Transforming.",
