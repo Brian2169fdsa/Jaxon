@@ -1208,6 +1208,73 @@ p {
 }
 
 @media (max-width: 800px) {
+  .mobile-menu {
+    position: absolute;
+    top: 100%;
+  }
+
+  .mobile-action-bar {
+    width: calc(100% - 58px);
+    grid-template-columns: .78fr 1.22fr;
+  }
+
+  .mobile-action-bar a {
+    font-size: .9rem;
+    white-space: nowrap;
+  }
+
+  .chat-widget:not(.open) {
+    right: 0;
+    bottom: env(safe-area-inset-bottom);
+    width: 58px;
+    height: 64px;
+    gap: 0;
+  }
+
+  .chat-widget:not(.open) .chat-launcher {
+    width: 58px;
+    min-width: 58px;
+    height: 64px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .chat-widget.open {
+    left: 12px;
+    right: 12px;
+    bottom: calc(76px + env(safe-area-inset-bottom));
+    width: auto;
+    height: auto;
+    align-items: flex-end;
+  }
+
+  .chat-widget.open .chat-panel {
+    width: min(390px, 100%);
+  }
+
+  .chat-launcher strong {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .chat-spark {
+    width: 34px;
+    height: 34px;
+  }
+
+  .chat-widget.open > .chat-launcher {
+    display: none;
+  }
+}
+
+@media (max-width: 800px) {
   .site-header {
     height: 76px;
   }

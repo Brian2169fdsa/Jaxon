@@ -8,11 +8,13 @@ export function BeforeAfter({
   after,
   beforeAlt,
   afterAlt,
+  priority = false,
 }: {
   before: string;
   after: string;
   beforeAlt: string;
   afterAlt: string;
+  priority?: boolean;
 }) {
   const [position, setPosition] = useState(50);
   const ref = useRef<HTMLDivElement>(null);
@@ -30,8 +32,8 @@ export function BeforeAfter({
       onPointerDown={(event) => { event.currentTarget.setPointerCapture(event.pointerId); update(event.clientX); }}
       onPointerMove={(event) => { if (event.currentTarget.hasPointerCapture(event.pointerId)) update(event.clientX); }}
     >
-      <div className="ba-after"><Image src={after} alt={afterAlt} fill sizes="(max-width: 800px) 100vw, 50vw" /><span>After</span></div>
-      <div className="ba-before" style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}><Image src={before} alt={beforeAlt} fill sizes="(max-width: 800px) 100vw, 50vw" /><span>Before</span></div>
+      <div className="ba-after"><Image src={after} alt={afterAlt} fill loading={priority ? "eager" : "lazy"} fetchPriority={priority ? "high" : "auto"} sizes="(max-width: 800px) 100vw, 50vw" /><span>After</span></div>
+      <div className="ba-before" style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}><Image src={before} alt={beforeAlt} fill loading={priority ? "eager" : "lazy"} fetchPriority={priority ? "high" : "auto"} sizes="(max-width: 800px) 100vw, 50vw" /><span>Before</span></div>
       <div className="ba-handle" style={{ left: `${position}%` }}><span>↔</span></div>
       <input aria-label="Adjust before and after comparison" type="range" min="0" max="100" value={position} onChange={(event) => setPosition(Number(event.target.value))} />
     </div>
