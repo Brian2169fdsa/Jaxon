@@ -39,8 +39,8 @@ const aboutCards = [
 const reviewImages = [
   "/images/reviews/sarah-m.png",
   "/images/reviews/dale-t.png",
-  "/images/reviews/rachel-k.svg",
-  "/images/reviews/mike-d.svg",
+  "/images/reviews/rachel-k.png",
+  "/images/reviews/mike-d.png",
 ] as const;
 
 const reviewCards = reviews.slice(0, 4).map(([quote, name, town], index) => [
@@ -51,7 +51,11 @@ const reviewCards = reviews.slice(0, 4).map(([quote, name, town], index) => [
   `${name} customer portrait illustration`,
 ] as const);
 
-const blogCards = blogPosts.slice(0, 4).map((post) => [post.title, post.description, `/blog/${post.slug}`, post.image, post.imageAlt] as const);
+const blogMenuPosts = blogPosts
+  .filter((post, index, posts) => posts.findIndex((candidate) => candidate.image === post.image) === index)
+  .slice(0, 4);
+
+const blogCards = blogMenuPosts.map((post) => [post.title, post.description, `/blog/${post.slug}`, post.image, post.imageAlt] as const);
 
 const contactCards = [
   ["Call CLM", business.phone, `tel:${business.phoneHref}`, "/images/logo.png", `${business.name} logo`],
