@@ -846,6 +846,8 @@ p {
   color: var(--body);
   box-shadow: none;
   text-decoration: none;
+  white-space: normal;
+  overflow: hidden;
 }
 
 .desktop-nav .mega-service-card:hover,
@@ -871,6 +873,8 @@ p {
 .mega-service-card strong,
 .mega-service-card small {
   display: block;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .mega-service-card strong {
@@ -886,6 +890,10 @@ p {
   font-size: .78rem;
   font-weight: 600;
   line-height: 1.38;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .header-actions .button {
