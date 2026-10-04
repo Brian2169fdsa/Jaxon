@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="title desc">
+  <title id="title">Sarah M. customer portrait illustration</title>
+  <desc id="desc">Warm illustrated portrait card for Sarah M.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#dceeff"/>
+      <stop offset="1" stop-color="#fff4df"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#sky)"/>
+  <circle cx="502" cy="82" r="46" fill="#f8c96d"/>
+  <path d="M0 252c95-42 171-45 267-8 83 32 148 36 242 3 52-18 95-19 131-12v125H0z" fill="#6fa45a"/>
+  <path d="M0 285c116-30 221-19 328 12 119 34 218 13 312-23v86H0z" fill="#2f6b4e"/>
+  <circle cx="320" cy="132" r="58" fill="#19365b"/>
+  <circle cx="320" cy="125" r="44" fill="#f1bf9b"/>
+  <path d="M258 126c11-58 111-70 124-9-36-10-72-9-124 9z" fill="#24334d"/>
+  <path d="M212 319c8-64 49-105 108-105s100 41 108 105z" fill="#0c5bb8"/>
+  <text x="320" y="303" text-anchor="middle" font-family="Arial, sans-serif" font-size="54" font-weight="700" fill="#ffffff">SM</text>
+</svg>

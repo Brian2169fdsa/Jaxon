@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="title desc">
+  <title id="title">Mike D. customer portrait illustration</title>
+  <desc id="desc">Grounded illustrated portrait card for Mike D.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#d9ecff"/>
+      <stop offset="1" stop-color="#f0f3ef"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#bg)"/>
+  <path d="M0 252c78-29 155-26 230 7 82 36 176 38 279 5 58-19 98-23 131-16v112H0z" fill="#82aa5f"/>
+  <path d="M0 301c95-33 188-34 278-4 124 42 240 23 362-21v84H0z" fill="#305f49"/>
+  <circle cx="320" cy="129" r="59" fill="#1c2f49"/>
+  <circle cx="320" cy="124" r="44" fill="#c9906d"/>
+  <path d="M270 116c13-48 82-57 107-13-29-6-63-3-107 13z" fill="#202b32"/>
+  <path d="M214 319c9-64 50-103 106-103s97 39 106 103z" fill="#33445e"/>
+  <text x="320" y="303" text-anchor="middle" font-family="Arial, sans-serif" font-size="54" font-weight="700" fill="#ffffff">MD</text>
+</svg>
