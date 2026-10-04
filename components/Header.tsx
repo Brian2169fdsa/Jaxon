@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { business } from "@/lib/site-data";
+import { business, services } from "@/lib/site-data";
 
 const links = [
   ["Services", "/services"],
@@ -42,9 +42,38 @@ export function Header() {
           </Link>
           <nav className="desktop-nav" aria-label="Primary navigation">
             {links.map(([label, href]) => (
-              <Link key={href} href={href} className={pathname.startsWith(href) ? "active" : ""}>
-                {label}
-              </Link>
+              label === "Services" ? (
+                <div className="nav-mega" key={href}>
+                  <Link href={href} className={pathname.startsWith(href) ? "nav-mega-trigger active" : "nav-mega-trigger"}>
+                    {label}
+                  </Link>
+                  <div className="mega-menu">
+                    <div className="mega-menu-intro">
+                      <p className="eyebrow">Property services</p>
+                      <strong>One local crew for the whole property.</strong>
+                      <span>Lawn care, cleanup, beds, and brush clearing across northwest Oklahoma.</span>
+                      <Link href="/services">View all services</Link>
+                    </div>
+                    <div className="mega-service-grid">
+                      {services.map((service) => (
+                        <Link className="mega-service-card" href={`/services/${service.slug}`} key={service.slug}>
+                          <span className="mega-service-image">
+                            <Image src={service.image} alt={service.title} fill sizes="190px" />
+                          </span>
+                          <span>
+                            <strong>{service.shortTitle}</strong>
+                            <small>{service.description}</small>
+                          </span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <Link key={href} href={href} className={pathname.startsWith(href) ? "active" : ""}>
+                  {label}
+                </Link>
+              )
             ))}
           </nav>
           <div className="header-actions">
