@@ -1,9 +1,11 @@
 "use client";
 
 import Image from "next/image";
+import type { StaticImageData } from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import mustangDetailImage from "../Cinematic Red Mustang in Wet Garage.png";
 import { blogPosts } from "@/lib/blog-data";
 import { business, reviews, services, towns } from "@/lib/site-data";
 
@@ -18,30 +20,45 @@ const links = [
 ] as const;
 
 const detailingCards = [
-  ["Interior & Exterior", "Clean daily drivers, work trucks, and small fleets.", "/detailing", "/images/detailing-truck.jpg"],
-  ["Quote a Detail", "Send the vehicle and service details for a free estimate.", "/contact", "/images/work/detail-after.jpg"],
+  ["Interior & Exterior", "Clean daily drivers, work trucks, and small fleets.", "/detailing", mustangDetailImage, "Cinematic red Mustang after a professional detail"],
+  ["Quote a Detail", "Send the vehicle and service details for a free estimate.", "/contact", "/images/detailing-truck.jpg", "Professionally detailed black pickup truck"],
 ] as const;
 
 const workCards = [
-  ["Lawn & Mowing", "See mowing, trimming, and edging transformations.", "/work", "/images/work/lawn-after.jpg"],
-  ["Garden Beds", "Fresh mulch, cleaned beds, and crisp borders.", "/work", "/images/work/garden-after.jpg"],
-  ["Cleanup", "Storm debris and yard waste cleared away.", "/work", "/images/work/cleanup-after.jpg"],
-  ["Brush Clearing", "Overgrowth opened back up into usable ground.", "/work", "/images/work/brush-after.jpg"],
+  ["Lawn & Mowing", "See mowing, trimming, and edging transformations.", "/work", "/images/work/lawn-after.jpg", "Freshly mowed lawn after service"],
+  ["Garden Beds", "Fresh mulch, cleaned beds, and crisp borders.", "/work", "/images/work/garden-after.jpg", "Clean garden bed after service"],
+  ["Cleanup", "Storm debris and yard waste cleared away.", "/work", "/images/work/cleanup-after.jpg", "Clean yard after debris removal"],
+  ["Brush Clearing", "Overgrowth opened back up into usable ground.", "/work", "/images/work/brush-after.jpg", "Fence line opened after brush clearing"],
 ] as const;
 
 const aboutCards = [
-  ["Local Crew", "Based in Woodward and built for northwest Oklahoma properties.", "/about", "/images/about-crew.jpg"],
-  ["Ready to Roll", "One crew for mowing, cleanup, beds, brush, and detailing.", "/about", "/images/clm-work-truck.jpg"],
+  ["Local Crew", "Based in Woodward and built for northwest Oklahoma properties.", "/about", "/images/about-crew.jpg", "Combs Land Management crew"],
+  ["Ready to Roll", "One crew for mowing, cleanup, beds, brush, and detailing.", "/about", "/images/clm-work-truck.jpg", "Combs Land Management work truck"],
 ] as const;
 
-const reviewCards = reviews.slice(0, 4).map(([quote, name, town]) => [name, `${quote} - ${town}`, "/reviews", "/images/clm-work-truck.jpg"] as const);
+const reviewImages = [
+  "/images/reviews/sarah-m.svg",
+  "/images/reviews/dale-t.svg",
+  "/images/reviews/rachel-k.svg",
+  "/images/reviews/mike-d.svg",
+] as const;
 
-const blogCards = blogPosts.slice(0, 4).map((post) => [post.title, post.description, `/blog/${post.slug}`, post.image] as const);
+const reviewCards = reviews.slice(0, 4).map(([quote, name, town], index) => [
+  name,
+  `${quote} - ${town}`,
+  "/reviews",
+  reviewImages[index],
+  `${name} customer portrait illustration`,
+] as const);
+
+const blogCards = blogPosts.slice(0, 4).map((post) => [post.title, post.description, `/blog/${post.slug}`, post.image, post.imageAlt] as const);
 
 const contactCards = [
-  ["Call CLM", business.phone, `tel:${business.phoneHref}`, "/images/logo.png"],
-  ["Request a Quote", "Tell us about the property and what needs done.", "/contact", "/images/clm-work-truck.jpg"],
+  ["Call CLM", business.phone, `tel:${business.phoneHref}`, "/images/logo.png", `${business.name} logo`],
+  ["Request a Quote", "Tell us about the property and what needs done.", "/contact", "/images/clm-work-truck.jpg", "Combs Land Management work truck"],
 ] as const;
+
+type MegaCard = readonly [string, string, string, string | StaticImageData, string];
 
 const megaContent = {
   Detailing: {
@@ -50,7 +67,7 @@ const megaContent = {
     body: "Interior and exterior detailing for daily drivers, work trucks, and small fleets.",
     href: "/detailing",
     cta: "Explore detailing",
-    cards: detailingCards,
+    cards: detailingCards satisfies readonly MegaCard[],
   },
   "Our Work": {
     eyebrow: "Before and after",
@@ -123,10 +140,10 @@ export function Header() {
           <Link href={item.href}>{item.cta}</Link>
         </div>
         <div className="mega-link-grid">
-          {item.cards.map(([title, body, href, image]) => (
+          {item.cards.map(([title, body, href, image, imageAlt]) => (
             <Link className="mega-image-card" href={href} key={`${label}-${title}`}>
               <span className="mega-service-image">
-                <Image src={image} alt={title} fill sizes="260px" />
+                <Image src={image} alt={imageAlt} fill sizes="260px" />
               </span>
               <span>
                 <strong>{title}</strong>

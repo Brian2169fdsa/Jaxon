@@ -27,7 +27,7 @@ export default function HomePage() {
         <div className="shell hero-content">
           <p className="eyebrow eyebrow-light">Property care · Woodward County, Oklahoma</p>
           <h1>The cleanest property on the block starts here.</h1>
-          <p className="hero-copy">Lawn mowing, garden beds, yard cleanup, and brush clearing for homes, businesses, and land. One local crew for the whole property.</p>
+          <p className="hero-copy">Lawn mowing, garden beds, yard cleanup, and brush clearing for homes, businesses, and land. One local crew for the whole property, season after season.</p>
           <div className="button-row">
             <Link href="/contact" className="button button-primary">Get a Free Quote</Link>
             <a href={`tel:${business.phoneHref}`} className="button button-white">Call {business.phone}</a>

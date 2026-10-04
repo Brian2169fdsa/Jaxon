@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="title desc">
+  <title id="title">Rachel K. customer portrait illustration</title>
+  <desc id="desc">Bright illustrated portrait card for Rachel K.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f1f7ff"/>
+      <stop offset="1" stop-color="#f6ead8"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#bg)"/>
+  <path d="M0 246c84 15 144 1 218-29 93-38 176-26 250 21 61 38 117 42 172 29v93H0z" fill="#7cb169"/>
+  <path d="M0 292c98-20 195-11 291 12 124 29 235 19 349-20v76H0z" fill="#326b50"/>
+  <circle cx="320" cy="128" r="61" fill="#2c2c44"/>
+  <circle cx="320" cy="124" r="43" fill="#edb889"/>
+  <path d="M264 134c3-51 30-78 64-78 39 0 63 30 60 84-38-18-79-18-124-6z" fill="#57352c"/>
+  <path d="M210 319c9-63 51-104 110-104s101 41 110 104z" fill="#0c6d8f"/>
+  <text x="320" y="303" text-anchor="middle" font-family="Arial, sans-serif" font-size="54" font-weight="700" fill="#ffffff">RK</text>
+</svg>
