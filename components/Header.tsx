@@ -40,7 +40,7 @@ const reviewImages = [
   "/images/reviews/sarah-m.png",
   "/images/reviews/dale-t.png",
   "/images/reviews/rachel-k.png",
-  "/images/reviews/mike-d.svg",
+  "/images/reviews/mike-d.png",
 ] as const;
 
 const reviewCards = reviews.slice(0, 4).map(([quote, name, town], index) => [
