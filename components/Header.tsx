@@ -38,7 +38,7 @@ const aboutCards = [
 
 const reviewImages = [
   "/images/reviews/sarah-m.png",
-  "/images/reviews/dale-t.svg",
+  "/images/reviews/dale-t.png",
   "/images/reviews/rachel-k.svg",
   "/images/reviews/mike-d.svg",
 ] as const;
