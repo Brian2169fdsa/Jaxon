@@ -18,7 +18,7 @@ const links = [
 ] as const;
 
 const detailingCards = [
-  ["Interior & Exterior", "Clean daily drivers, work trucks, and small fleets.", "/detailing", "/images/detailing-truck.jpg"],
+  ["Interior & Exterior", "Clean daily drivers, work trucks, and small fleets.", "/detailing", "/images/cinematic-red-mustang-wet-garage.png"],
   ["Quote a Detail", "Send the vehicle and service details for a free estimate.", "/contact", "/images/work/detail-after.jpg"],
 ] as const;
 
