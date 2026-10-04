@@ -51,9 +51,9 @@ const reviewCards = reviews.slice(0, 4).map(([quote, name, town], index) => [
   `${name} customer portrait illustration`,
 ] as const);
 
-const blogMenuPosts = blogPosts
-  .filter((post, index, posts) => posts.findIndex((candidate) => candidate.image === post.image) === index)
-  .slice(0, 4);
+const blogMenuPosts = ["Lawn Care", "Garden Beds", "Property Cleanup", "Brush Clearing"]
+  .map((category) => blogPosts.find((post) => post.category === category))
+  .filter((post): post is (typeof blogPosts)[number] => Boolean(post));
 
 const blogCards = blogMenuPosts.map((post) => [post.title, post.description, `/blog/${post.slug}`, post.image, post.imageAlt] as const);
 
