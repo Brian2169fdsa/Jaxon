@@ -4,7 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { business, services } from "@/lib/site-data";
+import { blogPosts } from "@/lib/blog-data";
+import { business, reviews, services, towns } from "@/lib/site-data";
 
 const links = [
   ["Services", "/services"],
@@ -15,6 +16,83 @@ const links = [
   ["Blog", "/blog"],
   ["Contact", "/contact"],
 ] as const;
+
+const detailingCards = [
+  ["Interior & Exterior", "Clean daily drivers, work trucks, and small fleets.", "/detailing", "/images/detailing-truck.jpg"],
+  ["Quote a Detail", "Send the vehicle and service details for a free estimate.", "/contact", "/images/work/detail-after.jpg"],
+] as const;
+
+const workCards = [
+  ["Lawn & Mowing", "See mowing, trimming, and edging transformations.", "/work", "/images/work/lawn-after.jpg"],
+  ["Garden Beds", "Fresh mulch, cleaned beds, and crisp borders.", "/work", "/images/work/garden-after.jpg"],
+  ["Cleanup", "Storm debris and yard waste cleared away.", "/work", "/images/work/cleanup-after.jpg"],
+  ["Brush Clearing", "Overgrowth opened back up into usable ground.", "/work", "/images/work/brush-after.jpg"],
+] as const;
+
+const aboutCards = [
+  ["Local Crew", "Based in Woodward and built for northwest Oklahoma properties.", "/about", "/images/about-crew.jpg"],
+  ["Ready to Roll", "One crew for mowing, cleanup, beds, brush, and detailing.", "/about", "/images/clm-work-truck.jpg"],
+] as const;
+
+const reviewCards = reviews.slice(0, 4).map(([quote, name, town]) => [name, `${quote} - ${town}`, "/reviews", "/images/clm-work-truck.jpg"] as const);
+
+const blogCards = blogPosts.slice(0, 4).map((post) => [post.title, post.description, `/blog/${post.slug}`, post.image] as const);
+
+const contactCards = [
+  ["Call CLM", business.phone, `tel:${business.phoneHref}`, "/images/logo.png"],
+  ["Request a Quote", "Tell us about the property and what needs done.", "/contact", "/images/clm-work-truck.jpg"],
+] as const;
+
+const megaContent = {
+  Detailing: {
+    eyebrow: "Auto & truck detailing",
+    title: "Keep the vehicle as sharp as the property.",
+    body: "Interior and exterior detailing for daily drivers, work trucks, and small fleets.",
+    href: "/detailing",
+    cta: "Explore detailing",
+    cards: detailingCards,
+  },
+  "Our Work": {
+    eyebrow: "Before and after",
+    title: "See the property transformations.",
+    body: "Compare finished work across lawns, beds, cleanup, brush clearing, and detailing.",
+    href: "/work",
+    cta: "View the gallery",
+    cards: workCards,
+  },
+  About: {
+    eyebrow: "About CLM",
+    title: "A local crew built around follow-through.",
+    body: `Serving ${towns.slice(0, 5).join(", ")} and nearby communities with practical property care.`,
+    href: "/about",
+    cta: "Meet the crew",
+    cards: aboutCards,
+  },
+  Reviews: {
+    eyebrow: "Customer feedback",
+    title: "Trusted across Woodward County.",
+    body: "Read what local homeowners, landowners, and businesses say about the work.",
+    href: "/reviews",
+    cta: "Read reviews",
+    cards: reviewCards,
+  },
+  Blog: {
+    eyebrow: "Field notes",
+    title: "Local property advice for Oklahoma weather.",
+    body: "Browse lawn care, cleanup, landscaping, brush clearing, and detailing guides.",
+    href: "/blog",
+    cta: "Read the blog",
+    cards: blogCards,
+  },
+  Contact: {
+    eyebrow: "Start here",
+    title: "Call or send the quote details.",
+    body: "Share the address, the service you need, and photos if you have them.",
+    href: "/contact",
+    cta: "Get a free quote",
+    cards: contactCards,
+  },
+} as const;
 
 export function Header() {
   const pathname = usePathname();
@@ -32,6 +110,34 @@ export function Header() {
       window.removeEventListener("keydown", closeOnEscape);
     };
   }, [open]);
+
+  function renderMega(label: keyof typeof megaContent) {
+    const item = megaContent[label];
+
+    return (
+      <div className="mega-menu">
+        <div className="mega-menu-intro">
+          <p className="eyebrow">{item.eyebrow}</p>
+          <strong>{item.title}</strong>
+          <span>{item.body}</span>
+          <Link href={item.href}>{item.cta}</Link>
+        </div>
+        <div className="mega-link-grid">
+          {item.cards.map(([title, body, href, image]) => (
+            <Link className="mega-image-card" href={href} key={`${label}-${title}`}>
+              <span className="mega-service-image">
+                <Image src={image} alt={title} fill sizes="260px" />
+              </span>
+              <span>
+                <strong>{title}</strong>
+                <small>{body}</small>
+              </span>
+            </Link>
+          ))}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -68,6 +174,13 @@ export function Header() {
                       ))}
                     </div>
                   </div>
+                </div>
+              ) : label in megaContent ? (
+                <div className="nav-mega" key={href}>
+                  <Link href={href} className={pathname.startsWith(href) ? "nav-mega-trigger active" : "nav-mega-trigger"}>
+                    {label}
+                  </Link>
+                  {renderMega(label as keyof typeof megaContent)}
                 </div>
               ) : (
                 <Link key={href} href={href} className={pathname.startsWith(href) ? "active" : ""}>
