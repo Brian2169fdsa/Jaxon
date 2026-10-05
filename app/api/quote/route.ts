@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 
+export const runtime = "nodejs";
+
 const allowedServices = new Set(["Lawn Mowing", "Garden Beds", "Yard Cleanup", "Brush Clearing", "Auto/Truck Detailing", "Something Else"]);
 const allowedPropertyTypes = new Set(["Residential", "Commercial"]);
 
@@ -15,6 +17,18 @@ function escapeHtml(value: string) {
     "\"": "&quot;",
     "'": "&#039;",
   })[character] || character);
+}
+
+async function readProviderError(response: Response) {
+  const text = await response.text().catch(() => "");
+  if (!text) return "No response body from email provider.";
+
+  try {
+    const data = JSON.parse(text) as { message?: unknown; error?: unknown; name?: unknown };
+    return [data.name, data.message, data.error].filter((value): value is string => typeof value === "string" && Boolean(value.trim())).join(": ") || text;
+  } catch {
+    return text;
+  }
 }
 
 export async function POST(request: Request) {
@@ -123,13 +137,19 @@ export async function POST(request: Request) {
       }),
       signal: AbortSignal.timeout(12000),
     });
-  } catch {
+  } catch (error) {
+    console.error("Resend quote delivery request failed", error);
     return NextResponse.json({ error: "We could not send your request. Please try again or contact us directly." }, { status: 502 });
   }
 
   if (!response.ok) {
-    const providerError = await response.text();
-    console.error("Resend quote delivery failed", response.status, providerError);
+    const providerError = await readProviderError(response);
+    console.error("Resend quote delivery failed", {
+      status: response.status,
+      providerError,
+      fromEmail,
+      quoteToEmail,
+    });
     return NextResponse.json({ error: "We could not send your request. Please try again or contact us directly." }, { status: 502 });
   }
 
